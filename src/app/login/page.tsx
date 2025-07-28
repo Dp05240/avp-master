@@ -29,16 +29,22 @@ export default function LoginPage() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'linear-gradient(135deg, #6a82fb 0%, #fc5c7d 100%)',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        margin: 0,
+        padding: 0,
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
       <div
         style={{
-          width: 380,
-          padding: '2.5rem 2rem',
-          borderRadius: 18,
-          background: 'rgba(255,255,255,0.95)',
-          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
+          width: '100%',
+          maxWidth: 400,
+          padding: '3rem 2rem',
+          borderRadius: 20,
+          background: 'rgba(255, 255, 255, 0.95)',
+          boxShadow: '0 20px 60px rgba(0, 0, 0, 0.1)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -46,11 +52,12 @@ export default function LoginPage() {
       >
         <div
           style={{
-            fontSize: 32,
+            fontSize: 36,
             fontWeight: 700,
-            marginBottom: 8,
-            letterSpacing: 1,
-            color: '#333',
+            marginBottom: 12,
+            letterSpacing: -0.5,
+            color: '#1a1a1a',
+            textAlign: 'center',
           }}
         >
           AV+V Login
@@ -58,15 +65,16 @@ export default function LoginPage() {
         <div
           style={{
             fontSize: 16,
-            color: '#888',
-            marginBottom: 24,
-            letterSpacing: 0.5,
+            color: '#666',
+            marginBottom: 32,
+            letterSpacing: 0.2,
+            textAlign: 'center',
           }}
         >
           Welcome back! Please sign in to continue.
         </div>
         <form onSubmit={handleSubmit} style={{ width: '100%' }}>
-          <div style={{ marginBottom: 18 }}>
+          <div style={{ marginBottom: 20 }}>
             <input
               type="text"
               placeholder="Username"
@@ -74,20 +82,20 @@ export default function LoginPage() {
               onChange={e => setUsername(e.target.value)}
               style={{
                 width: '100%',
-                padding: '12px 14px',
-                borderRadius: 8,
-                border: '1px solid #d1d5db',
+                padding: '16px 18px',
+                borderRadius: 12,
+                border: '2px solid #e1e5e9',
                 fontSize: 16,
                 outline: 'none',
                 background: '#ffffff',
-                marginBottom: 4,
-                color: '#232323',
-                transition: 'border 0.2s',
+                color: '#1a1a1a',
+                transition: 'all 0.2s ease',
+                boxSizing: 'border-box',
               }}
               required
             />
           </div>
-          <div style={{ marginBottom: 18 }}>
+          <div style={{ marginBottom: 20 }}>
             <input
               type="password"
               placeholder="Password"
@@ -95,21 +103,30 @@ export default function LoginPage() {
               onChange={e => setPassword(e.target.value)}
               style={{
                 width: '100%',
-                padding: '12px 14px',
-                borderRadius: 8,
-                border: '1px solid #d1d5db',
+                padding: '16px 18px',
+                borderRadius: 12,
+                border: '2px solid #e1e5e9',
                 fontSize: 16,
                 outline: 'none',
                 background: '#ffffff',
-                marginBottom: 4,
-                color: '#232323',
-                transition: 'border 0.2s',
+                color: '#1a1a1a',
+                transition: 'all 0.2s ease',
+                boxSizing: 'border-box',
               }}
               required
             />
           </div>
           {error && (
-            <div style={{ color: '#e74c3c', marginBottom: 16, textAlign: 'center' }}>
+            <div style={{ 
+              color: '#dc3545', 
+              marginBottom: 20, 
+              textAlign: 'center',
+              fontSize: 14,
+              padding: '8px 12px',
+              background: '#f8d7da',
+              borderRadius: 8,
+              border: '1px solid #f5c6cb'
+            }}>
               {error}
             </div>
           )}
@@ -117,31 +134,37 @@ export default function LoginPage() {
             type="submit"
             style={{
               width: '100%',
-              padding: '12px 0',
-              borderRadius: 8,
-              background: 'linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%)',
-              color: '#fff',
+              padding: '16px 0',
+              borderRadius: 12,
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              color: '#ffffff',
               border: 'none',
               fontWeight: 600,
               fontSize: 18,
-              letterSpacing: 1,
-              boxShadow: '0 2px 8px #fc5c7d22',
+              letterSpacing: 0.5,
               cursor: 'pointer',
-              transition: 'background 0.2s',
+              transition: 'all 0.2s ease',
+              boxShadow: '0 4px 15px rgba(102, 126, 234, 0.3)',
             }}
           >
-            Login
+            Sign In
           </button>
         </form>
-        <div style={{ width: '100%', marginTop: 18, display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ 
+          width: '100%', 
+          marginTop: 24, 
+          display: 'flex', 
+          justifyContent: 'space-between',
+          fontSize: 14,
+        }}>
           <button
             type="button"
             style={{
               background: 'none',
               border: 'none',
-              color: '#6a82fb',
+              color: '#667eea',
               cursor: 'pointer',
-              fontSize: 15,
+              fontSize: 14,
               textDecoration: 'underline',
               padding: 0,
             }}
@@ -154,9 +177,9 @@ export default function LoginPage() {
             style={{
               background: 'none',
               border: 'none',
-              color: '#fc5c7d',
+              color: '#764ba2',
               cursor: 'pointer',
-              fontSize: 15,
+              fontSize: 14,
               textDecoration: 'underline',
               padding: 0,
             }}
@@ -165,7 +188,16 @@ export default function LoginPage() {
             Sign up
           </button>
         </div>
-        <div style={{ marginTop: 16, fontSize: 12, color: '#888', textAlign: 'center' }}>
+        <div style={{ 
+          marginTop: 20, 
+          fontSize: 12, 
+          color: '#888', 
+          textAlign: 'center',
+          padding: '8px 12px',
+          background: '#f8f9fa',
+          borderRadius: 8,
+          border: '1px solid #e9ecef'
+        }}>
           Demo: Enter any username and password to login
         </div>
       </div>
