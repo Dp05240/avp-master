@@ -12,20 +12,13 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    try {
-      const res = await fetch('http://localhost:4000/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-      });
-      const data = await res.json();
-      if (data.success) {
-        router.push('/dashboard');
-      } else {
-        setError(data.message || 'Login failed');
-      }
-    } catch {
-      setError('Network error. Please try again.');
+    
+    // Demo login - accept any username/password for now
+    if (username && password) {
+      // Simulate successful login
+      router.push('/dashboard');
+    } else {
+      setError('Please enter both username and password');
     }
   };
 
@@ -171,6 +164,9 @@ export default function LoginPage() {
           >
             Sign up
           </button>
+        </div>
+        <div style={{ marginTop: 16, fontSize: 12, color: '#888', textAlign: 'center' }}>
+          Demo: Enter any username and password to login
         </div>
       </div>
     </div>

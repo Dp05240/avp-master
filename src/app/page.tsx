@@ -7,8 +7,8 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    // Redirect to dashboard
-    router.push('/dashboard');
+    // Redirect to login page instead of dashboard
+    router.push('/login');
   }, [router]);
 
   return (
@@ -27,7 +27,7 @@ export default function Home() {
           AV+V Platform
         </h1>
         <p style={{ fontSize: 18, opacity: 0.9 }}>
-          Redirecting to dashboard...
+          Redirecting to login...
         </p>
       </div>
     </div>
